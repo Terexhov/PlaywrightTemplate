@@ -1,0 +1,27 @@
+stages:
+  - autotest
+
+variables:
+  PLAYWRIGHT_IMAGE: pkg.sminex.com/proxies-microsoft/playwright:v1.50.0-noble
+
+pages:
+  image: $PLAYWRIGHT_IMAGE
+  stage: autotest
+  variables:
+    env: preprod
+  script:
+    - npm install
+    - npx playwright test || true
+    - cp -r playwright-report/* $CI_PROJECT_DIR/public
+  artifacts:
+    when: always
+    paths:
+      - $CI_PROJECT_DIR/public
+    expire_in: 1 week
+  environment:
+    name: autotests-preprod
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "schedule"
+    when: always
+  - if: $CI_COMMIT_BRANCH == "main"
+    when: manual

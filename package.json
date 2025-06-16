@@ -1,0 +1,29 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "sminex",
+  "license": "",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@playwright/test": "^1.53.0",
+    "@types/mssql": "^9.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "globals": "^15.13.0",
+    "mssql": "^11.0.1",
+    "nodemailer": "^6.9.16",
+    "playwright": "^1.53.0",
+    "ts-node": "^10.9.2",
+    "typescript-eslint": "^8.18.0"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^6.4.17"
+  },
+  "type": "module"
+}
