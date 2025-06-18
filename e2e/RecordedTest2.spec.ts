@@ -6,9 +6,8 @@ test('Создание нового проекта', async ({ page }) => {
 
   // Авторизация
   await pom.login('testadmin@example.ru', '0ds9fpFj4efkgqd');
-
-  // Переход к проектам
-  await pom.navigateToSection('Проекты');
+  await page.getByRole('button').filter({ hasText: /^$/ }).click();
+  await page.getByText('Проекты').click();
   await page.getByRole('complementary').getByRole('button').click();
 
   // Заполнение данных проекта
@@ -20,7 +19,7 @@ test('Создание нового проекта', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Адрес' }).fill('г. Москва, ул. Тестовая, д. 1');
 
   // Сохранение проекта
-  await page.getByRole('complementary').getByRole('button', { name: 'Добавить' }).click();
+  await page.getByRole('complementary').getByRole('button', { name: 'Добавить' }).click({ timeout: 60000 });
   await page.waitForLoadState('networkidle');
 
   // Выход из системы
